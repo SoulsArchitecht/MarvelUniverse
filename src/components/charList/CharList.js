@@ -29,11 +29,6 @@ const CharList = (props) => {
 
 
     const onCharListLoaded = async (newCharList) => {
-
-        const {logger, secLog} = await import('./someFunc');
-        logger();
-        secLog();
-
         let ended = false;
         if (newCharList.length < 9) {
             ended = true;
@@ -94,13 +89,6 @@ const CharList = (props) => {
 
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
-
-    if (loading) {
-        import('./someFunc')
-            .then(obj => obj.logger())
-            //.then(obj => obj.default()) - if export was by defalut
-            .catch();
-    }
 
     return (
         <div className="char__list">
